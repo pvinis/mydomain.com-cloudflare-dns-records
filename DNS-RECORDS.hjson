@@ -15,8 +15,9 @@
 		# `A` is the type, of course.
 		# Last part is the IPv4 address.
 		{
+			type: A
 			name: mail
-			ip: 11.22.33.44
+			ipv4: 11.22.33.44
 		}
 
 		# Another example:
@@ -24,8 +25,9 @@
 		# The `mydomain.com.` part can be replaced with just the short alias `@`.
 		# You can also have that record be proxied on Cloudflare. The default is true.
 		{
+			type: A
 			name: @
-			ip: 11.22.33.44
+			ipv4: 11.22.33.44
 			proxied: false
 		}
 
