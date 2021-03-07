@@ -2,7 +2,10 @@ name: main workflow
 
 on:
   push:
-    branches: [master main]
+    branches:
+      - master
+      - main
+
 
 jobs:
   hello:
