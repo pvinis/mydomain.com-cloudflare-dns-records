@@ -9,6 +9,6 @@ jobs:
       id: helloo
       uses: pvinis/update-cloudflare-dns@v0.2
       with:
-        zone: mydomain.com
+        zone: ね.co
     - name: step 2
       run: echo sure

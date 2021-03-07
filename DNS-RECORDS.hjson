@@ -1,4 +1,6 @@
 {
+	# For reference, take a look at https://github.com/pvinis/update-cloudflare-dns/blob/master/DNS-RECORDS.hjson
+
 	records: [
 		## A ##
 
@@ -85,4 +87,3 @@
 		}
 	]
 }
-
