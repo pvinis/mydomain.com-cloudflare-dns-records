@@ -1,7 +1,4 @@
 {
-	# The zone name we will be updating using this repo.
-	zone: mydomain.com
-
 	records: [
 		## A ##
 
