@@ -1,0 +1,13 @@
+{
+	# A
+	# CNAME
+	# add all possible ones with an example
+
+	TXT: [
+		{
+			name: @
+			content: some-key-verification=value ?huh -thats cool!
+		}
+	]
+}
+

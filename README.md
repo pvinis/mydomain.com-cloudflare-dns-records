@@ -1,2 +1,5 @@
-# website-cloudflare-dns-records
-A template repo to use store and update your Cloudflare DNS records easily!
+# Cloudflare DNS configuration just became amazingly easy!
+
+
+## How to use it right now!
+- Click the `Use this template` button at the top of this repo.
