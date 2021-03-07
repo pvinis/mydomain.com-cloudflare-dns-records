@@ -7,7 +7,7 @@ jobs:
     steps:
     - name: wow a step
       id: helloo
-      uses: actions/update-cloudflare-dns-records@v0.2
+      uses: pvinis/update-cloudflare-dns-records-action@v0.2
       with:
         zone: ね.co
     - name: step 2
