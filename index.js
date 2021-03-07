@@ -54,6 +54,10 @@ const main = async () => {
 					if (rec.content !== possiblySameRec.ipv4) return false
 					break
 
+				case "AAAA":
+					if (rec.content !== possiblySameRec.ipv6) return false
+					break
+
 				case "TXT":
 					if (rec.content !== possiblySameRec.content) return false
 					break
@@ -109,6 +113,15 @@ const main = async () => {
 						type: rec.type,
 						name: rec.name,
 						content: rec.ipv4,
+						proxied: rec.proxied ?? true,
+					})
+					break
+
+				case "AAAA":
+					cf.dnsRecords.add(zoneId, {
+						type: rec.type,
+						name: rec.name,
+						content: rec.ipv6,
 						proxied: rec.proxied ?? true,
 					})
 					break

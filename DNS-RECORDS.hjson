@@ -32,6 +32,35 @@
 		}
 
 
+		## AAAA ##
+
+		# Often represented as:
+		# mail.mydomain.com.	1	IN	AAAA	684D:1111:222:3333:4444:5555:6:77
+		# The `mail.mydomain.com.` part is the full version. We only care about everything before `.mydomain.com.`.
+		# So if we have `mail.mydomain.com.`, we would use `name: mail`.
+		# If it was just `mydomain.com.`, we can use just `name: @`. See below for example.
+		# `1` is not used in A.
+		# `IN` is not used in A.
+		# `AAAA` is the type, of course.
+		# Last part is the IPv6 address.
+		{
+			type: AAAA
+			name: mail
+			ipv6: 684D:1111:222:3333:4444:5555:6:77
+		}
+
+		# Another example:
+		# mydomain.com.	1	IN	AAAA	684D:1111:222:3333:4444:5555:6:77
+		# The `mydomain.com.` part can be replaced with just the short alias `@`.
+		# You can also have that record be proxied on Cloudflare. The default is true.
+		{
+			type: AAAA
+			name: @
+			ipv6: 684D:1111:222:3333:4444:5555:6:77
+			proxied: false
+		}
+
+
 		## TXT ##
 
 		# Often represented as:
