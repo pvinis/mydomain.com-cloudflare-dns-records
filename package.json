@@ -2,11 +2,15 @@
   "name": "website-cloudflare-dns-records",
   "version": "1.0.0",
   "scripts": {
-      "start": "node index.js"
+    "start": "node index.js"
   },
   "dependencies": {
-    "cloudflare-cli": "4.1.0",
+    "cloudflare": "2.7.0",
+    "dotenv": "8.2.0",
     "hjson": "3.2.2"
+  },
+  "devDependencies": {
+    "@types/cloudflare": "2.7.0"
   },
   "main": "index.js",
   "repository": "https://github.com/pvinis/website-cloudflare-dns-records.git",
