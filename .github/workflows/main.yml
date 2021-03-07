@@ -12,6 +12,6 @@ jobs:
     name: Update Cloudflare DNS records
     steps:
     - name: Update Cloudflare DNS records
-      uses: pvinis/update-cloudflare-dns@v0.2
+      uses: pvinis/update-cloudflare-dns@v0.2.1
       with:
         zone: ね.co
