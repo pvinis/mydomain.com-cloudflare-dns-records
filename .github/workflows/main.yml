@@ -1,4 +1,4 @@
-name: main workflow
+name: Update Cloudflare DNS records
 
 on:
   push:
