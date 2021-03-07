@@ -7,8 +7,8 @@ jobs:
     steps:
     - name: wow a step
       id: helloo
-      uses: pvinis/update-cloudflare-dns-records-action@v0.2
+      uses: pvinis/update-cloudflare-dns@v0.2
       with:
-        zone: ね.co
+        zone: mydomain.com
     - name: step 2
       run: echo sure
