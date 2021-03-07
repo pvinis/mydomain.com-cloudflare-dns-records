@@ -2,7 +2,8 @@
   "name": "website-cloudflare-dns-records",
   "version": "1.0.0",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dry": "DRY_RUN=true node index.js"
   },
   "dependencies": {
     "cloudflare": "2.7.0",

@@ -6,6 +6,9 @@ const main = async () => {
 	const HJSON = require("hjson")
 	const fs = require("fs")
 	const Cloudflare = require("cloudflare")
+
+	const dryRun = process.env.DRY_RUN ?? false
+
 	const cf = new Cloudflare({
 		token: myToken
 	})
@@ -27,8 +30,7 @@ const main = async () => {
 
 
 	// Check which records need to be deleted, kept, or added
-	const currentRecords = await cf.dnsRecords.browse(zoneId)
-	console.log(JSON.stringify(currentRecords))
+	const currentRecords = (await cf.dnsRecords.browse(zoneId)).result
 
 	const toBeDeleted = []
 	const toBeKept = []
@@ -50,10 +52,11 @@ const main = async () => {
 			switch (rec.type) {
 				case "A":
 					if (rec.content !== possiblySameRec.ipv4) return false
-
+					break
 
 				case "TXT":
 					if (rec.content !== possiblySameRec.content) return false
+					break
 
 				default: break
 			}
@@ -82,9 +85,11 @@ const main = async () => {
 		console.log(`- ${rec.type} ${rec.name} ${rec.content}`)
 	})
 
-	toBeDeleted.forEach(rec => {
-		cf.dnsRecords.del(zoneId, rec.id)
-	})
+	if (!dryRun) {
+		toBeDeleted.forEach(rec => {
+			cf.dnsRecords.del(zoneId, rec.id)
+		})
+	}
 
 	console.log("Records that will be kept:")
 	toBeKept.forEach(rec => {
@@ -96,30 +101,31 @@ const main = async () => {
 		console.log(`- ${rec.type} ${rec.name} ${rec.content}`)
 	})
 
-	toBeAdded.forEach(rec => {
+	if (!dryRun) {
+		toBeAdded.forEach(rec => {
+			switch (rec.type) {
+				case "A":
+					cf.dnsRecords.add(zoneId, {
+						type: rec.type,
+						name: rec.name,
+						content: rec.ipv4,
+						proxied: rec.proxied ?? true,
+					})
+					break
 
-		switch (rec.type) {
-			case "A":
-				cf.dnsRecords.add(zoneId, {
-					type: rec.type,
-					name: rec.name,
-					content: rec.ipv4,
-					proxied: rec.proxied ?? true,
-				})
-				break
 
+				case "TXT":
+					cf.dnsRecords.add(zoneId, {
+						type: rec.type,
+						name: rec.name,
+						content: rec.content,
+					})
+					break
 
-			case "TXT":
-				cf.dnsRecords.add(zoneId, {
-					type: rec.type,
-					name: rec.name,
-					content: rec.content,
-				})
-				break
-
-			default: break
-		}
-	})
+				default: break
+			}
+		})
+	}
 
 
 
