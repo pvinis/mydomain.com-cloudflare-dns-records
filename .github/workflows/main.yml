@@ -1,4 +1,8 @@
-on: [push]
+name: main workflow
+
+on:
+  push:
+    branches: [master main]
 
 jobs:
   hello:
