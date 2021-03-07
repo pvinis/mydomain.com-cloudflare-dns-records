@@ -6,16 +6,12 @@ on:
       - master
       - main
 
-
 jobs:
   hello:
     runs-on: ubuntu-latest
-    name: say hello
+    name: Update Cloudflare DNS records
     steps:
-    - name: wow a step
-      id: helloo
+    - name: Update Cloudflare DNS records
       uses: pvinis/update-cloudflare-dns@v0.2
       with:
         zone: ね.co
-    - name: step 2
-      run: echo sure
