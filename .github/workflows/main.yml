@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Update Cloudflare DNS records
     steps:
+      - uses: actions/checkout@v2
       - uses: pvinis/update-cloudflare-dns@v0.3.9
         with:
           zone: ね.co
