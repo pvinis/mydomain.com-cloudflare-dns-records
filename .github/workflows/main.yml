@@ -12,7 +12,7 @@ jobs:
     name: Update Cloudflare DNS records
     steps:
       - uses: actions/checkout@v2
-      - uses: pvinis/update-cloudflare-dns@v0.3.11
+      - uses: pvinis/update-cloudflare-dns@v0.3.18
         with:
           zone: ね.co
           cloudflareToken: ${{ secrets.CLOUDFLARE_TOKEN }}
