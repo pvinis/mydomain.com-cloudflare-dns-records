@@ -7,6 +7,12 @@
 			name: mail
 			ipv4: 44.22.33.44
 		}
+		
+		{
+			type: AAAA
+			name: demo
+			ipv6: FFFF:1111:222:3333:4144:5555:6:77
+		}
 
 		{
 			type: AAAA
@@ -21,6 +27,12 @@
 			proxied: false
 		}
 
+                {
+			type: TXT
+			name: demo2
+			content: lalalalal
+		}
+		
 		{
 			type: TXT
 			name: _sub
@@ -30,7 +42,7 @@
 		{
 			type: TXT
 			name: @
-			content: Something else indeed
+			content: Something else indeed wowowo
 		}
 	]
 }
