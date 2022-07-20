@@ -24,7 +24,7 @@
 		{
 			type: TXT
 			name: _sub
-			content: some-key-verification=value ?huh -thats cooooool!
+			content: some-key-verification=value ?huh -thats cooooool!nice
 		}
 
 		{
